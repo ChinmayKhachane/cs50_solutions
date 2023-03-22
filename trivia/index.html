@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+
+          document.addEventListener("DOMContentLoaded", function() {
+
+            let correct = document.querySelector('.correct');
+            correct.addEventListener('click', function() {
+            correct.style.backgroundColor = 'green';
+            document.querySelector('#feedback1').innerHTML = 'Correct!'
+            });
+
+            let incorrects = document.querySelectorAll('.incorrect');
+            for(i = 0; i < incorrects.length; i++)
+            {
+                incorrects[i].addEventListener('click', function() {
+                    incorrects[i].style.ackgroundColor = 'red';
+                    document.querySelector('#feedback1').innerHTML = 'Incorrect';
+                });
+            }
+
+            document.querySelector('#check').addEventListener('click', function() {
+                let input = document.querySelector('input');
+                if (input === '7.5 sextillion') {
+                    input.style.backgroundColor = 'green'
+                    document.querySelector('#feedback2').innerHTML = 'Correct!'
+                } else {
+                    input.style.backgroundColor = 'red';
+                    document.querySelector('#feedback2').innerHTMl = 'Incorrect'
+                }
+            });
+          });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3> What is the longest organ in the body?</h3>
+                <button class="incorrect">The heart</button>
+                <button class="incorrect">The lungs</button>
+                <button class="incorrect">The stomach</button>
+                <button class="incorrect">The liver</button>
+                <button class="correct">The skin</button>
+                <p id = "feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Approximately how many grains of sand are there in the world?</h3>
+                <input type="text"></input>
+                <button id="Check">Check Answer</button>
+                <p id="feedback"></p>
+            </div>
+        </div>
+    </body>
+</html>
